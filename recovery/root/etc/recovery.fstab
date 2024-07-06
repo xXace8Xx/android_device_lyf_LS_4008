@@ -1,0 +1,14 @@
+# Android fstab file.
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+#<mnt_point>	<type>	<src>						<fs_mgr_flags>				<mnt_flags and options>
+                        
+/system		ext4	/dev/block/platform/sdio_emmc/by-name/system	wait					ro,barrier=1
+/data		ext4	/dev/block/platform/sdio_emmc/by-name/userdata	wait,encryptable=footer,check		noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc,discard
+/cache		ext4	/dev/block/platform/sdio_emmc/by-name/cache	wait,check				noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc,discard
+/productinfo	ext4	/dev/block/platform/sdio_emmc/by-name/prodnv	wait,check				noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc,discard
+/oem		ext4	/dev/block/platform/sdio_emmc/by-name/oem	wait					ro,barrier=1
+/persist	emmc	/dev/block/platform/sdio_emmc/by-name/persist	defaults				defaults
+
+/sdcard		vfat	/devices/sdio_sd/mmc_host/mmc1			voldmanaged=sdcard0:auto:external,noemulatedsd	defaults
+/usb-otg	vfat	/devices/20200000.usb/usb1			voldmanaged=usbdisk:auto			defaults
