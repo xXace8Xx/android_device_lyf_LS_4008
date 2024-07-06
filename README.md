@@ -1,2 +1,3 @@
-# android_device_lyf_LS_4008
-Device Tree for Lyf Flame 7s
+Device Tree for **Lyf Flame 7s**
+
+https://www.gadgets360.com/lyf-flame-7s-3816
